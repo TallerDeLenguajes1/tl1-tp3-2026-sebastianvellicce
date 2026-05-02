@@ -26,9 +26,14 @@ int main()
     {
         printf("Ingrese el nombre N%d\n",i+1);
         gets(Buff);
-        V[i]=(char*)malloc(sizeof(char)*strlen((Buff)+1));
+        V[i]=(char*)malloc(sizeof(char)*(strlen(Buff)+1));
         strcpy(V[i],Buff);
     }
     MostrarPersonas(V);
+    free(Buff);
+    for(i = 0; i < CANTIDAD_NOMBRES; i++)
+    {
+        free(V[i]);
+    }
     return 0;
 }
