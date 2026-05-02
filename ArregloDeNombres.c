@@ -14,12 +14,31 @@ void MostrarPersonas(char *V[])
     }
 }
 
+char* BuscarNombre(char *V[],char *palabraBuscada)
+{
+    char *resultado;
+    resultado = (char*)malloc(sizeof(char)*100);
+    int i;
+    for(i = 0;i<CANTIDAD_NOMBRES;i++)
+    {
+        resultado = strstr(V[i],palabraBuscada);
+        if(resultado){
+            return V[i];
+        }
+    }
+    return "fdsfsdf";
+}
+
 int main()
 {
     int i;
     char *Buff;
+    char *palabraBuscada;
+    char *resultado;
     char *V[CANTIDAD_NOMBRES];
 
+    resultado = (char*)malloc(sizeof(char)*100);
+    palabraBuscada = (char*)malloc(sizeof(char)*100);
     Buff = (char*)malloc(sizeof(char)*100);
 
     for(i = 0; i<CANTIDAD_NOMBRES;i++)
@@ -30,6 +49,12 @@ int main()
         strcpy(V[i],Buff);
     }
     MostrarPersonas(V);
+    printf("Ingrese la palabra que quiere buscar\n");
+    gets(palabraBuscada);
+
+
+    resultado = BuscarNombre(V,palabraBuscada);
+    printf("%s\n", resultado);
     free(Buff);
     for(i = 0; i < CANTIDAD_NOMBRES; i++)
     {
