@@ -14,9 +14,21 @@ void MostrarPersonas(char *V[])
     }
 }
 
+void BuscarNombre(char *vectorNombres[], int id)
+{
+    if (id > CANTIDAD_NOMBRES)
+    {
+        printf("El ID ingresado no es valido.\n");
+    }
+    else
+    {
+        printf("El ID ingresado le corresponde a %s\n",vectorNombres[id]);
+    }
+}
+
 int main()
 {
-    int i;
+    int i, id;
     char *Buff;
     char *V[CANTIDAD_NOMBRES];
 
@@ -30,6 +42,10 @@ int main()
         strcpy(V[i],Buff);
     }
     MostrarPersonas(V);
+    printf("Ingrese un ID\n");
+    scanf("%d",&id);
+    BuscarNombre(V,id);
+
     free(Buff);
     for(i = 0; i < CANTIDAD_NOMBRES; i++)
     {
