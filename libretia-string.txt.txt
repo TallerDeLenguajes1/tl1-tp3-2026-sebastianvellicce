@@ -1,0 +1,8 @@
+• strlen(<cadena>): Devuelve la longitud de la cadena sin tomar en cuenta el caracter de
+final de cadena.
+• strcpy(<cadena_destino>, <cadena_origen>) : Copia el contenido de
+<cadena_origen> en <cadena_destino>.
+• strcat(<cadena_destino>, <cadena_origen>) : Concatena el contenido de
+<cadena_origen> al final de <>.
+• strcmp(<cadena1>, <cadena2>) : Compara las dos cadenas y devuelve un 0 si las dos
+cadenas son iguales, un número negativo si <cadena1> es menor q
