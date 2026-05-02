@@ -14,7 +14,19 @@ void MostrarPersonas(char *V[])
     }
 }
 
-char* BuscarNombre(char *V[],char *palabraBuscada)
+void BuscarNombreID(char *vectorNombres[], int id)
+{
+    if (id > CANTIDAD_NOMBRES)
+    {
+        printf("El ID ingresado no es valido.\n");
+    }
+    else
+    {
+        printf("El ID ingresado le corresponde a %s\n",vectorNombres[id]);
+    }
+}
+
+char* BuscarNombrePalabra(char *V[],char *palabraBuscada)
 {
     char *resultado;
     int i;
@@ -31,7 +43,7 @@ char* BuscarNombre(char *V[],char *palabraBuscada)
 
 int main()
 {
-    int i;
+    int i, id;
     char *Buff;
     char *palabraBuscada;
     char *resultado;
@@ -43,17 +55,23 @@ int main()
     for(i = 0; i<CANTIDAD_NOMBRES;i++)
     {
         printf("Ingrese el nombre N%d\n",i+1);
+        getchar();
         gets(Buff);
         V[i]=(char*)malloc(sizeof(char)*(strlen(Buff)+1));
         strcpy(V[i],Buff);
     }
     MostrarPersonas(V);
+    printf("Ingrese un ID\n");
+    scanf("%d",&id);
+    BuscarNombreID(V,id);
+
     printf("Ingrese la palabra que quiere buscar\n");
+    getchar();
     gets(palabraBuscada);
 
-
-    resultado = BuscarNombre(V,palabraBuscada);
+    resultado = BuscarNombrePalabra(V,palabraBuscada);
     printf("%s\n", resultado);
+
     free(Buff);
     for(i = 0; i < CANTIDAD_NOMBRES; i++)
     {
