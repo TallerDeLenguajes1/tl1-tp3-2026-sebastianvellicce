@@ -17,16 +17,16 @@ void MostrarPersonas(char *V[])
 char* BuscarNombre(char *V[],char *palabraBuscada)
 {
     char *resultado;
-    resultado = (char*)malloc(sizeof(char)*100);
     int i;
     for(i = 0;i<CANTIDAD_NOMBRES;i++)
     {
         resultado = strstr(V[i],palabraBuscada);
-        if(resultado){
+        if(resultado)
+        {
             return V[i];
         }
     }
-    return "fdsfsdf";
+    return "-1";
 }
 
 int main()
@@ -37,7 +37,6 @@ int main()
     char *resultado;
     char *V[CANTIDAD_NOMBRES];
 
-    resultado = (char*)malloc(sizeof(char)*100);
     palabraBuscada = (char*)malloc(sizeof(char)*100);
     Buff = (char*)malloc(sizeof(char)*100);
 
