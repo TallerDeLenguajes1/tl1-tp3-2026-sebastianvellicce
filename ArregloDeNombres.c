@@ -43,7 +43,7 @@ char* BuscarNombrePalabra(char *V[],char *palabraBuscada)
 
 int main()
 {
-    int i, id;
+    int i, id, opcion;
     char *Buff;
     char *palabraBuscada;
     char *resultado;
@@ -61,16 +61,27 @@ int main()
         strcpy(V[i],Buff);
     }
     MostrarPersonas(V);
-    printf("Ingrese un ID\n");
-    scanf("%d",&id);
-    BuscarNombreID(V,id);
 
-    printf("Ingrese la palabra que quiere buscar\n");
-    getchar();
-    gets(palabraBuscada);
+    printf("\n------------------------MENU------------------------\n");
+    printf("1-Buscar por ID\n2-Buscar por palabra\n");
+    scanf("%d",&opcion);
+    if(opcion == 1)
+    {
+        printf("Ingrese un ID\n");
+        scanf("%d",&id);
+        BuscarNombreID(V,id);
+    }else if(opcion == 2)
+    {
+        printf("Ingrese la palabra que quiere buscar\n");
+        getchar();
+        gets(palabraBuscada);
+        resultado = BuscarNombrePalabra(V,palabraBuscada);
+        printf("%s\n", resultado);
+    }else{
+        printf("Opcion invalida\n");
+    }
 
-    resultado = BuscarNombrePalabra(V,palabraBuscada);
-    printf("%s\n", resultado);
+
 
     free(Buff);
     for(i = 0; i < CANTIDAD_NOMBRES; i++)
